@@ -11,13 +11,12 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 openai.api_key = api_key
 
-# openai.api_key = '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'
 
 headers = {
     'Content-Type': 'application/json'
 }
 
-hotel_name = 'ABC Hotel'  # Otelin adını burada belirtin
+hotel_name = 'ABC Hotel'  # Otelin adı
 
 data = {
     'model': 'gpt-3.5-turbo-0613',
@@ -40,5 +39,5 @@ response = requests.post(
 )
 
 response_content = response.json()['choices'][0]['message']['content']
-response_content = response_content.split('\n')[0].strip()  # İlk satırı alın ve boşlukları temizleyin
+response_content = response_content.split('\n')[0].strip()  # İlk satırı alın ve boşlukları temizle
 print(response_content)
